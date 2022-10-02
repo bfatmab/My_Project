@@ -1,0 +1,58 @@
+﻿@model My_Project.Models.Taksit
+
+
+
+@{
+    ViewData["Title"] = "Taksitlendir";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Taksitlendir</h1>
+
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Taksitlendir">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="col-md-6 mt-md-0 mt-3">
+                <label asp-for="KrediNo" class="control-label"></label>
+                <input asp-for="KrediNo" class="form-control" />
+                <span asp-validation-for="KrediNo" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-6 mt-md-0 mt-3">
+                <label asp-for="TaksitNo" class="control-label"></label>
+                <input asp-for="TaksitNo" class="form-control" />
+                <span asp-validation-for="TaksitNo" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-6 mt-md-0 mt-3">
+                <label asp-for="ToplamTutar" class="control-label"></label>
+                <input asp-for="ToplamTutar" class="form-control" />
+                <span asp-validation-for="ToplamTutar" class="text-danger"></span>
+            </div>
+
+            @*<div class="col-md-6 mt-md-0 mt-3">
+            <label asp-for="KrediNo" class="control-label"></label>
+            <input asp-for="KrediNo" class="form-control" />
+            <span asp-validation-for="KrediNo" class="text-danger"></span>
+        </div>*@
+
+            <div class="col-md-6 mt-md-0 mt-3">
+                <label>Tarih</label>
+                <input type="date" class="form-control" name="Tarih" required>
+            </div>
+
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Listele">Kontrol</a>
+</div>
+

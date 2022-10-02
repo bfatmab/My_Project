@@ -1,0 +1,112 @@
+﻿@model IEnumerable<My_Project.Models.ViewModel>
+
+
+
+@{
+    ViewData["Title"] = "Listele";
+}
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/SideBar.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+</head>
+<header><h1>Listele</h1></header>
+
+
+<p>
+    <a href="/home/OgrenciEkle" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Yeni Öğrenci</a>
+</p>
+<body>
+   
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="row">
+                        @Html.DisplayNameFor(model => model.Id)
+                    </th>
+                    <th scope="row">
+                        @Html.DisplayNameFor(model => model.Ad)
+                    </th>
+                    <th scope="row">
+                        @Html.DisplayNameFor(model => model.Soyad)
+                    </th>
+                    <th scope="row">
+                        @Html.DisplayNameFor(model => model.BaslangicTarihi)
+                    </th>
+                    <th scope="row">
+                        @Html.DisplayNameFor(model => model.GeriOdemeBasTarihi)
+                    </th>
+
+                    <th scope="row">
+                        @Html.DisplayNameFor(model => model.OgrNo)
+                    </th>
+
+                    <th scope="row">
+                        @Html.DisplayNameFor(model => model.ToplamTutar)
+                    </th>
+                    <th scope="row">
+                        @Html.DisplayNameFor(model => model.KrediTuru)
+                    </th>
+                    <th scope="row">
+                        @Html.DisplayNameFor(model => model.OgrenimTuru)
+                    </th>
+
+
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Id)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Ad)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Soyad)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.BaslangicTarihi)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.GeriOdemeBasTarihi)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.OgrNo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ToplamTutar)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.KrediTuru)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.OgrenimTuru)
+                        </td>
+
+                        <td>
+                            @*@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }, new { @class = "btn btn-primary " })*@ &nbsp;&nbsp;&nbsp;
+
+                            @Html.ActionLink("Detay", "IslemListele", new { id = item.OgrNo }, new { @class = "btn btn-success" }) &nbsp;&nbsp;&nbsp;
+                            @Html.ActionLink("Sil", "OgrenciSil", new { id = item.Id }, new { @onclick = "return confirm('silmek istediğinize emin misiniz?');", @class = "btn btn-danger" })
+
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+
+  
+</body>

@@ -1,0 +1,72 @@
+﻿@model My_Project.Models.Islem
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<h1 style="text-align:center">İşlem Ekle</h1>
+
+<div class="row">
+    <div class="col-md-6 mt-md-0 mt-3">
+        <form asp-action="IslemEkle" asp-controller="home" method="post" class="form-group">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="row">
+                @*<div class="col-md-6 mt-md-0 mt-3">
+                    <label>Ogrenci No</label>
+                     <input type="text" class="form-control" name="OgrNo" required>
+
+                </div>*@
+                @Html.HiddenFor(m => m.OgrNo)
+                <div class="col-md-6 mt-md-0 mt-3">
+                    <label>Ana Para</label>
+                    <input type="text" class="form-control" name="AnaPara" required>
+                </div>
+                <div class="col-md-6 mt-md-0 mt-3">
+                    <label>Faiz Oran</label>
+                    <input type="text" class="form-control" name="FaizOran" required>
+                </div>
+
+
+                @*//dropdown ile combobox kullanımı için ilgili kodlar*@
+
+                <div class="col-md-6 mt-md-0 mt-3">
+                    <label>Öğrenim Türü</label>
+
+                    @Html.DropDownListFor(p => p.OgrenimTuru, new SelectListItem[] {
+                     new SelectListItem() { Text = "Lisans/Önlisans", Value = "Lisans/Önlisans" },
+                     new SelectListItem() { Text = "Yüksek Lisans", Value = "Yüksek Lisans" },
+                    new SelectListItem()  { Text = "Doktora", Value = "Doktora" }}, new { @class = "form-control"  })
+
+
+                </div>
+
+                <div class="col-md-6 mt-md-0 mt-3">
+                    <label>Kredi Türü</label>
+
+                    @Html.DropDownListFor(p => p.KrediTuru, new SelectListItem[] {
+                     new SelectListItem() { Text = "Öğrenim", Value = "Öğrenim" } },
+                   new { @class = "form-control"  })
+
+                </div>
+
+
+
+            </div>
+          
+
+            <div class="form-group">
+                <input type="submit" value="Kayıt Ekle" class="btn btn-primary mt-3" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-controller="home" asp-action="Listele">Anasayfaya Dön</a>
+</div>
+

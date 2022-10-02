@@ -1,0 +1,58 @@
+﻿@model My_Project.Models.Ogrenci
+
+@{
+    ViewData["Title"] = "OgrenciEkle";
+}
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<h1 style="text-align:center">Ögrenci Ekle</h1>
+
+<div class="row">
+    <div class="col-md-6 mt-md-0 mt-3">
+        <form asp-action="OgrenciEkle" asp-controller="home" method="post" class="form-group">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="row">
+                <div class="col-md-6 mt-md-0 mt-3">
+                    <label>Ad</label>
+                    <input type="text" class="form-control" name="Ad" required>
+                </div>
+                <div class="col-md-6 mt-md-0 mt-3">
+                    <label>Soyad</label>
+                    <input type="text" class="form-control" name="Soyad" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mt-md-0 mt-3">
+                    <label>Baslangıç Tarihi</label>
+                    <input type="date" class="form-control" name="BaslangicTarihi" required>
+                </div>
+                <div class="col-md-6 mt-md-0 mt-3">
+                    <label>Geri Ödeme Başlangıç Tarihi</label>
+                    <input type="date" class="form-control" name="GeriOdemeBasTarihi" required>
+                </div>
+            </div>
+
+           
+
+            
+            <div class="form-group">
+                <input type="submit" value="Kayıt Ekle" class="btn btn-primary mt-3" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-controller="home" asp-action="Listele">Geri Dön</a>
+</div>
+
+@*@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}*@

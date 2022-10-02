@@ -1,0 +1,65 @@
+﻿@model My_Project.Models.Islem
+
+@{
+   
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Yapilandir</h1>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Yapilandir">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            @*<div class="form-group">
+                <label asp-for="Id" class="control-label"></label>
+                <input asp-for="Id" class="form-control" />
+                <span asp-validation-for="Id" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <label asp-for="OgrNo" class="control-label"></label>
+                <input asp-for="OgrNo" class="form-control" />
+                <span asp-validation-for="OgrNo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AnaPara" class="control-label"></label>
+                <input asp-for="AnaPara" class="form-control" />
+                <span asp-validation-for="AnaPara" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FaizOran" class="control-label"></label>
+                <input asp-for="FaizOran" class="form-control" />
+                <span asp-validation-for="FaizOran" class="text-danger"></span>
+            </div>
+    
+            <div class="col-md-6 mt-md-0 mt-3">
+                <label>Öğrenim türü</label>
+
+                @Html.DropDownListFor(p => p.OgrenimTuru, new SelectListItem[] {
+                 new SelectListItem() { Text = "Lisans/Önlisans", Value = "Lisans/Önlisans" },
+                 new SelectListItem() { Text = "Yüksek Lisans", Value = "Yüksek Lisans" },
+                new SelectListItem()  { Text = "Doktora", Value = "Doktora" }}, new { @class = "form-control" })
+
+
+            </div>
+
+            <div class="col-md-6 mt-md-0 mt-3">
+                <label>Öğrenim türü</label>
+
+                @Html.DropDownListFor(p => p.KrediTuru, new SelectListItem[] {
+                 new SelectListItem() { Text = "Öğrenim", Value = "Öğrenim" } },
+               new { @class = "form-control" })
+
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary"  />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="col-md-6 mt-md-0 mt-3>
+    <a style="color:darkorange"   asp-action="Listele">Anasayfa</a>
+</div>

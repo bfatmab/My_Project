@@ -1,0 +1,54 @@
+﻿@model IEnumerable<My_Project.Models.ViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+@{
+    Layout = null;
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Id)</th>
+            <th>@Html.DisplayNameFor(model => model.Ad)</th>
+            <th>@Html.DisplayNameFor(model => model.Soyad)</th>
+            <th>@Html.DisplayNameFor(model => model.BaslangicTarihi)</th>
+            <th>@Html.DisplayNameFor(model => model.GeriOdemeBasTarihi)</th>
+            <th>@Html.DisplayNameFor(model => model.OgrNo)</th>
+            <th>@Html.DisplayNameFor(model => model.ToplamTutar)</th>
+            <th>@Html.DisplayNameFor(model => model.KrediTuru)</th>
+            <th>@Html.DisplayNameFor(model => model.OgrenimTuru)</th>
+
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+
+        <tr>
+
+            <td>@Html.DisplayFor(modelItem => item.Id)</td>
+            <td>@Html.DisplayFor(modelItem => item.Ad)</td>
+            <td>@Html.DisplayFor(modelItem => item.Soyad)</td>
+            <td>@Html.DisplayFor(modelItem => item.BaslangicTarihi)</td>
+            <td>@Html.DisplayFor(modelItem => item.GeriOdemeBasTarihi)</td>
+            <td>@Html.DisplayFor(modelItem => item.OgrNo)</td>
+            <td>@Html.DisplayFor(modelItem => item.ToplamTutar)</td>
+            <td>@Html.DisplayFor(modelItem => item.KrediTuru)</td>
+            <td>
+            <td>@Html.DisplayFor(modelItem => item.OgrenimTuru)</td>
+
+            <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

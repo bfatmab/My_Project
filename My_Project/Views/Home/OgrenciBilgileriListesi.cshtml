@@ -1,0 +1,67 @@
+﻿@model IEnumerable<My_Project.Models.Ogrenci>
+
+@{
+    ViewData["Title"] = "OgrenciBilgileriListesi";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/SideBar.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+</head>
+
+<h1>Ogrenci Bilgileri Listesi</h1>
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="row">
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th scope="row">
+                @Html.DisplayNameFor(model => model.Ad)
+            </th>
+            <th scope="row">
+                @Html.DisplayNameFor(model => model.Soyad)
+            </th>
+            <th scope="row">
+                @Html.DisplayNameFor(model => model.BaslangicTarihi)
+            </th>
+            <th scope="row">
+                @Html.DisplayNameFor(model => model.GeriOdemeBasTarihi)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Soyad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BaslangicTarihi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GeriOdemeBasTarihi)
+            </td>
+            <td>
+                @Html.ActionLink("işlem ekle", "IslemEkle", new { id = item.Id },new {
+               @class = "btn btn-primary"}) |
+            
+            </td>
+        </tr>
+           }
+    </tbody>
+</table>

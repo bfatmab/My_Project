@@ -1,0 +1,122 @@
+﻿@model IEnumerable<My_Project.Models.ViewModelTI>
+
+@{
+    ViewData["Title"] = "TaksitIslemDetay";
+    Layout="~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>İşlem Ve Taksit Özeti</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OgrNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AnaPara)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FaizOran)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FaizMiktar)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ToplamTutar)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Kalanborc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KrediTuru)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OgrenimTuru)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OdenmeyenSayisi)
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.ID)
+            </th>*@
+            @*<th>
+                @Html.DisplayNameFor(model => model.TaksitNo)
+            </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.KrediNo)
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.TaksitMiktar)
+            </th>*@
+            @*<th>
+                @Html.DisplayNameFor(model => model.ödemeBilgisi)
+            </th>*@
+            @*<th>
+                @Html.DisplayNameFor(model => model.Tarih)
+            </th>*@
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OgrNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AnaPara)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FaizOran)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FaizMiktar)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ToplamTutar)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kalanborc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KrediTuru)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OgrenimTuru)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OdenmeyenSayisi)
+            </td>
+         
+            @*<td>
+                @Html.DisplayFor(modelItem => item.TaksitNo)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.KrediNo)
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.TaksitMiktar)
+            </td>*@
+            @*<td>
+                @Html.DisplayFor(modelItem => item.ödemeBilgisi)
+            </td>*@
+            @*<td>
+                @Html.DisplayFor(modelItem => item.Tarih)
+            </td>*@
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }, new { @class = "btn btn-primary"}) 
+                @*@Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
+            </td>
+        </tr>
+           }
+    </tbody>
+</table>

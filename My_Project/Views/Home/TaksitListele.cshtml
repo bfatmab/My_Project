@@ -1,0 +1,79 @@
+﻿@model IEnumerable<My_Project.Models.Taksit>
+
+@{
+    ViewData["Title"] = "TaksitListele";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>TaksitListele</h1>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+<table class="table">
+    <thead>
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TaksitNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KrediNo)
+            </th>
+         
+            <th>
+                @Html.DisplayNameFor(model => model.TaksitMiktar)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ödemeBilgisi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tarih)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.ID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TaksitNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.KrediNo)
+                </td>
+             
+                <td>
+                    @Html.DisplayFor(modelItem => item.TaksitMiktar)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ödemeBilgisi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tarih)
+                </td>
+
+                <td>
+                    @Html.ActionLink("Edit", "TaksitEdit", new { id = item.ID }, new { @class = "btn btn-primary" })
+
+
+
+
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

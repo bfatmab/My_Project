@@ -1,0 +1,121 @@
+﻿@model IEnumerable<My_Project.Models.Islem>
+
+
+@{
+    ViewData["Title"] = "İşlem Listesi";
+}
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+<h1 style="text-align:center">İşlem Listele</h1>
+
+@*<p>
+        <a href="/home/IslemEkle" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Yeni Kayıt</a>
+    </p>*@
+@*<p>
+        <a asp-controller="home" asp-action="TaksitEkle" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Taksit Oluştur</a>
+    </p>*@
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="row">
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th scope="row">
+                @Html.DisplayNameFor(model => model.OgrNo)
+            </th>
+            <th scope="row">
+                @Html.DisplayNameFor(model => model.AnaPara)
+            </th>
+            <th scope="row">
+                @Html.DisplayNameFor(model => model.FaizOran)
+            </th>
+            <th scope="row">
+                @Html.DisplayNameFor(model => model.FaizMiktar)
+            </th>
+            <th scope="row">
+                @Html.DisplayNameFor(model => model.ToplamTutar)
+            </th>
+            <th scope="row">
+                @Html.DisplayNameFor(model => model.KrediTuru)
+            </th>
+            <th scope="row">
+                @Html.DisplayNameFor(model => model.OgrenimTuru)
+            </th>
+            @*<th scope="row">
+                @Html.DisplayNameFor(model => model.KrediNo)
+            </th>
+            <th scope="row">
+                @Html.DisplayNameFor(model => model.ödemeBilgisi)
+            </th>
+            <th scope="row">
+                @Html.DisplayNameFor(model => model.TaksitMiktar)
+            </th>*@
+           
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OgrNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AnaPara)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FaizOran)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FaizMiktar)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ToplamTutar)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.KrediTuru)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OgrenimTuru)
+                </td>
+                @*<td>
+                    @Html.DisplayFor(modelItem => item.KrediNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ödemeBilgisi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TaksitMiktar)
+                </td>*@
+            <td>
+                @Html.ActionLink("Güncelle", "Yapilandir", new { id = item.OgrNo }, new { @class = "btn btn-primary " })&nbsp;&nbsp;&nbsp;
+
+                @Html.ActionLink("Delete", "IslemSil", new { id = item.Id }, new { @onclick = "return confirm('silmek istediğinize emin misiniz?');", @class = "btn btn-danger " })&nbsp;&nbsp;&nbsp;
+
+                @Html.ActionLink("Taksit Oluştur", "Taksitlendir", new { id = item.Id }, new { @class = "btn btn-primary " })&nbsp;&nbsp;&nbsp;
+                @Html.ActionLink("Detay", "TaksitIslemDetay", new { id = item.Id }, new { @class = "btn btn-primary " })&nbsp;&nbsp;&nbsp;
+
+
+            </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@*<p>
+        <a asp-controller="home" asp-action="Taksitlendir" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Taksit Oluştur</a>
+    </p>*@
+
